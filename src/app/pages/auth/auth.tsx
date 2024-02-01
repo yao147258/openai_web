@@ -10,12 +10,12 @@ export function Auth() {
     return (
         <div className={styles["auth-page"]}>
             <ChatGPTIcon/>
-            <div className={styles["auth-title"]}>OpenAiHub</div>
+            <div className={styles["auth-title"]}>OpenAi-悠然天天</div>
             <div className={styles["auth-sub-title"]}>
                 学习AI开发、掌握AI部署、运用AI提效
             </div>
             <img
-                src="/qrcode.png"
+                src="/qrcode_for_gh_607f3160d8f1_258.jpg"
                 style={{width: 250}}
             />
             <div className={styles["auth-tips"]}>
@@ -24,7 +24,7 @@ export function Auth() {
                     href="/qrcode.jpg"
                     target="_blank"
                 >
-                    回复【获取验证码】获取访问密码
+                    回复【401】获取访问密码
                 </a>
             </div>
 
@@ -45,8 +45,8 @@ export function Auth() {
 
             <div className={styles["auth-actions"]}>
                 <Button type="primary" onClick={() => access.login()}>确认登录👣</Button>
-                <Button type="text"
-                        onClick={() => window.open('https://bugstack.cn/md/project/chatgpt/chatgpt.html')}>此项目地址</Button>
+                {/*<Button type="text"*/}
+                {/*        onClick={() => window.open('https://bugstack.cn/md/project/chatgpt/chatgpt.html')}>此项目地址</Button>*/}
             </div>
             <hr></hr>
             <span>

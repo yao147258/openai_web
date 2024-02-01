@@ -21,5 +21,9 @@ export enum GptVersion {
     CHATGLM_Turbo = "chatglm_turbo",
     DALL_E_2 = "dall-e-2",
     DALL_E_3 = "dall-e-3",
+}
 
+export enum DashScopeModel {
+    QWEN_PLUS = "qwen-plus",
+    QWEN_MAX = "qwen-max",
 }

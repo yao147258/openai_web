@@ -1,4 +1,5 @@
 import {GptVersion} from "@/app/constants";
+import {DashScopeModel} from "../app/constants";
 
 export interface Dialog {
     // 头像
@@ -25,7 +26,7 @@ export interface Message {
 }
 
 export interface SessionConfig {
-    gptVersion: GptVersion;
+    gptVersion: DashScopeModel;
 }
 
 export enum MessageRole {

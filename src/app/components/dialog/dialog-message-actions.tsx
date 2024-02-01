@@ -3,7 +3,7 @@ import styles from '@/app/components/dialog/dialog-message-action.module.scss';
 import {Select} from 'antd'
 import BreakIcon from "../../icons/break.svg";
 import {userChatStore} from '@/app/store/chat-store';
-import {GptVersion} from '../../constants'
+import {DashScopeModel, GptVersion} from '../../constants'
 import {SessionConfig} from "@/types/chat";
 import { CSSProperties, useRef, useState } from 'react';
 
@@ -74,20 +74,22 @@ export default function DialogMessagesActions(props: {
     const {config} = props
     return <div className={styles['chat-input-actions']}>
         <Select
-            value={config?.gptVersion??GptVersion.CHATGLM_Turbo}
-            style={{ width: 160 }}
+            value={config?.gptVersion??DashScopeModel.QWEN_MAX}
+            style={{ width: 200 }}
             options={[
                 // { value: GptVersion.CHATGLM_LITE, label: 'chatglm_lite' },
                 // { value: GptVersion.CHATGLM_STD, label: 'chatglm_std' },
                 // { value: GptVersion.CHATGLM_PRO, label: 'chatglm_pro' },
-                { value: GptVersion.CHATGLM_Turbo, label: 'chatglm_turbo' },
-                { value: GptVersion.DALL_E_3, label: 'dall-e-3(画图)' },
+                // {value: GptVersion.CHATGLM_Turbo, label: 'chatglm_turbo'},
+                // {value: GptVersion.DALL_E_3, label: 'dall-e-3(画图)'},
                 // { value: GptVersion.GPT_3_5_TURBO_16K, label: 'gpt-3.5-turbo-16k' },
                 // { value: GptVersion.DALL_E_2, label: 'dall-e-2(画图)' },
-                { value: GptVersion.GPT_3_5_TURBO, label: 'gpt-3.5-turbo' },
+                // {value: GptVersion.GPT_3_5_TURBO, label: 'gpt-3.5-turbo'},
                 // { value: GptVersion.CHATGLM_6B_SSE, label: 'chatGLM_6b_SSE' },
                 // { value: GptVersion.GPT_4, label: 'gpt-4【暂无】' },
                 // { value: GptVersion.GPT_4_32K, label: 'gpt-4-32k【暂无】' },
+                {value: DashScopeModel.QWEN_PLUS, label: 'qwen-plus'},
+                {value: DashScopeModel.QWEN_MAX, label: 'qwen-max(限时免费)'}
             ]}
             onChange={(value) => {
                 chatStore.updateCurrentSession((session) => {

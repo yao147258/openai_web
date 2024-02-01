@@ -34,19 +34,16 @@ export const useAccessStore: any = create<AccessControlStore>()(
             },
             async login() {
                 const res = await login(get().accessCode);
-                const { data, code } = await res.json();
+                const {data, code, msg} = await res.json();
                 console.log("data", data);
                 // 这里需要根据返回结果设置
                 if (code === 200) {
                     console.log("登陆成功");
                     get().updateToken(data);
-                    set(() => ({ accessCodeErrorMsgs: "" }));
+                    set(() => ({accessCodeErrorMsgs: ""}));
                 }
-                if (code === "0002") {
-                    set(() => ({ accessCodeErrorMsgs: "验证码已过期,请获取最新验证码" }));
-                }
-                if (code === "0003") {
-                    set(() => ({ accessCodeErrorMsgs: "验证码不存在,请确认最新验证码" }));
+                if (code === 500) {
+                    set(() => ({accessCodeErrorMsgs: msg}));
                 }
                 return data;
             },

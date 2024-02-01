@@ -4,7 +4,8 @@ import {Dialog, Message, MessageDirection, MessageRole, MessageType, SessionConf
 import {GptVersion} from "@/app/constants";
 import {nanoid} from "nanoid";
 import {completions} from "@/apis";
-import { useAccessStore } from "./access";
+import {useAccessStore} from "./access";
+import {DashScopeModel} from "../constants";
 
 interface ChatStore {
     id: number;
@@ -60,7 +61,7 @@ function createChatSession(dialog?: {
         ],
         clearContextIndex: undefined,
         config: {
-            gptVersion: GptVersion.CHATGLM_Turbo,
+            gptVersion: DashScopeModel.QWEN_MAX,
         }
     };
 }

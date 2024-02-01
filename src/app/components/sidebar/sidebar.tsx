@@ -53,26 +53,26 @@ export function SideBar() {
                 <ChatIcon/>
             </div>
 
-            <div className={styles["sidebar-role"]}
-                 onClick={() => {
-                     navigate(Path.Role)
-                 }}>
-                <RoleIcon/>
-            </div>
+            {/*<div className={styles["sidebar-role"]}*/}
+            {/*     onClick={() => {*/}
+            {/*         navigate(Path.Role)*/}
+            {/*     }}>*/}
+            {/*    <RoleIcon/>*/}
+            {/*</div>*/}
 
-            <div className={styles["sidebar-mall"]}
-                 onClick={() => {
-                     navigate(Path.Sale)
-                 }}>
-                <SaleIcon/>
-            </div>
+            {/*<div className={styles["sidebar-mall"]}*/}
+            {/*     onClick={() => {*/}
+            {/*         navigate(Path.Sale)*/}
+            {/*     }}>*/}
+            {/*    <SaleIcon/>*/}
+            {/*</div>*/}
 
-            <div className={styles["sidebar-git"]}
-                 onClick={() => {
-                     window.open('https://bugstack.cn/md/project/chatgpt/chatgpt.html');
-                 }}>
-                <GitIcon/>
-            </div>
+            {/*<div className={styles["sidebar-git"]}*/}
+            {/*     onClick={() => {*/}
+            {/*         window.open('https://bugstack.cn/md/project/chatgpt/chatgpt.html');*/}
+            {/*     }}>*/}
+            {/*    <GitIcon/>*/}
+            {/*</div>*/}
 
         </div>
     )

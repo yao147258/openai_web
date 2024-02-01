@@ -1,9 +1,11 @@
 import {GptVersion} from "@/app/constants";
 import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
+import {DashScopeModel} from "../app/constants";
 
 // 构建前把localhost修改为你的公网IP或者域名地址
-const apiHostUrl = "http://localhost:8080";
+// const apiHostUrl = "http://localhost:8080";
+const apiHostUrl = "http://47.96.81.41:8080";
 
 /**
  * Header 信息
@@ -12,7 +14,7 @@ function getHeaders() {
     const accessState = useAccessStore.getState()
 
     const headers = {
-        Authorization: accessState.token,
+        token: accessState.token,
         'Content-Type': 'application/json;charset=utf-8'
     }
 
@@ -33,7 +35,7 @@ export const getRoleList = () => {
  */
 export const completions = (data: {
     messages: { content: string; role: MessageRole }[],
-    model: GptVersion
+    model: DashScopeModel
 }) => {
     return fetch(`${apiHostUrl}/openAi/completionStream`, {
         method: 'post',
