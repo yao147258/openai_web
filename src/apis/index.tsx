@@ -5,7 +5,7 @@ import {DashScopeModel} from "../app/constants";
 
 // 构建前把localhost修改为你的公网IP或者域名地址
 // const apiHostUrl = "http://localhost:8080";
-const apiHostUrl = "http://47.96.81.41:8080";
+const apiHostUrl = "http://47.96.81.41:80";
 
 /**
  * Header 信息
