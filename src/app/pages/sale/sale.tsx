@@ -30,7 +30,7 @@ export function Sale() {
             useAccessStore.getState().goToLogin();
         }
         // 设置结果
-        setProducts(data);
+        setProducts(data.list);
     }
 
     const payOrder = async (productId: number) => {

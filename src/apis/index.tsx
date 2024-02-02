@@ -4,8 +4,9 @@ import {MessageRole} from "@/types/chat";
 import {DashScopeModel} from "../app/constants";
 
 // 构建前把localhost修改为你的公网IP或者域名地址
-// const apiHostUrl = "http://localhost:8080";
-const apiHostUrl = "http://47.96.81.41:80";
+const apiHostUrl = "http://localhost:8080";
+
+// const apiHostUrl = "http://47.96.81.41:80";
 
 /**
  * Header 信息
@@ -63,9 +64,10 @@ export const login = (token: string) => {
  * 商品列表查询
  */
 export const queryProductList = () => {
-    return fetch(`${apiHostUrl}/api/v1/sale/query_product_list`, {
-        method: "get",
+    return fetch(`${apiHostUrl}/product/queryPage`, {
+        method: "post",
         headers: getHeaders(),
+        body: JSON.stringify({page: 1, limit: 100})
     });
 }
 
@@ -73,13 +75,9 @@ export const queryProductList = () => {
  * 用户商品下单，获得支付地址 url
  */
 export const createPayOrder = (productId: number) => {
-    return fetch(`${apiHostUrl}/api/v1/sale/create_pay_order`, {
-        method: "post",
-        headers: {
-            ...getHeaders(),
-            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-        },
-        body: `productId=${productId}`
+    return fetch(`${apiHostUrl}/order/createOrder?goodsId=${productId}&payChannel=0`, {
+        method: "get",
+        headers: getHeaders()
     });
 }
 

@@ -60,12 +60,12 @@ export function SideBar() {
             {/*    <RoleIcon/>*/}
             {/*</div>*/}
 
-            {/*<div className={styles["sidebar-mall"]}*/}
-            {/*     onClick={() => {*/}
-            {/*         navigate(Path.Sale)*/}
-            {/*     }}>*/}
-            {/*    <SaleIcon/>*/}
-            {/*</div>*/}
+            <div className={styles["sidebar-mall"]}
+                 onClick={() => {
+                     navigate(Path.Sale)
+                 }}>
+                <SaleIcon/>
+            </div>
 
             {/*<div className={styles["sidebar-git"]}*/}
             {/*     onClick={() => {*/}
