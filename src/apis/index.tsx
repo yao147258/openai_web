@@ -7,7 +7,7 @@ import {DashScopeModel} from "../app/constants";
 // const apiHostUrl = "http://localhost:8080";
 
 // const apiHostUrl = "http://47.96.81.41:80";
-const apiHostUrl = "http://172.20.125.210:80";
+const apiHostUrl = "http://114.55.2.87:80";
 
 /**
  * Header 信息
