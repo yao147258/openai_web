@@ -197,7 +197,7 @@ export const userChatStore = create<ChatStore>()(
                             const text = decoder.decode(value);
 
                             // 权限校验
-                            if (text === "0003") {
+                            if (text === 401) {
                                 controller.close();
                                 useAccessStore.getState().goToLogin();
                             }

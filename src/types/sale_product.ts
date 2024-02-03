@@ -7,6 +7,6 @@ export interface SaleProduct {
 }
 
 export enum SaleProductEnum {
-    SUCCESS = "0000",
-    NeedLogin = "0003",
+    SUCCESS = 200,
+    NeedLogin = 401,
 }

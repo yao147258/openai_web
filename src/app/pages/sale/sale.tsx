@@ -40,11 +40,21 @@ export function Sale() {
         if (code === SaleProductEnum.NeedLogin) {
             useAccessStore.getState().goToLogin();
         }
+
+        var newWindow = window.open("", "_blank")
+
+        // 写入HTML内容到新窗口
+        newWindow.document.write(data);
+
+        // 为了确保DOM渲染完成，可以在写入内容后加载相关资源和执行其他操作
+        // 结束文档流，允许浏览器渲染页面
+        newWindow.document.close();
+
         // 支付唤起
-        if (code == SaleProductEnum.SUCCESS) {
-            setPayUrl(data);
-            handleButtonClick();
-        }
+        // if (code == SaleProductEnum.SUCCESS) {
+        //     setPayUrl(data);
+        //     handleButtonClick();
+        // }
     }
 
     useEffect(() => {
