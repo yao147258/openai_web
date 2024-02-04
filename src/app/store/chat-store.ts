@@ -20,6 +20,7 @@ interface ChatStore {
     onRetry: () => void;
     deleteMessage: (message: Message) => void;
     createNewMessage: (value: string) => Message;
+    isJson: (value: string) => boolean;
 }
 
 export interface ChatSession {
@@ -195,7 +196,7 @@ export const userChatStore = create<ChatStore>()(
 
                             controller.enqueue(value);
                             const text = decoder.decode(value);
-                            if (get().isJson(text) === true) {
+                            if (get().isJson(text)) {
                                 var code = JSON.parse(text).code;
                                 // 权限校验
                                 if (code === 401) {
