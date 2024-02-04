@@ -38,17 +38,18 @@ export function Sale() {
         const {data, code} = await res.json();
         // 登录拦截
         if (code === SaleProductEnum.NeedLogin) {
+            window.confirm('请重新登录！');
             useAccessStore.getState().goToLogin();
-        }
+        } else if (code === SaleProductEnum.SUCCESS) {
+            var newWindow = window.open("", "_blank")
 
-        var newWindow = window.open("", "_blank")
-
-        if (newWindow) {
-            // 写入HTML内容到新窗口
-            newWindow.document.write(data);
-            // 为了确保DOM渲染完成，可以在写入内容后加载相关资源和执行其他操作
-            // 结束文档流，允许浏览器渲染页面
-            newWindow.document.close();
+            if (newWindow) {
+                // 写入HTML内容到新窗口
+                newWindow.document.write(data);
+                // 为了确保DOM渲染完成，可以在写入内容后加载相关资源和执行其他操作
+                // 结束文档流，允许浏览器渲染页面
+                newWindow.document.close();
+            }
         }
 
         // 支付唤起

@@ -195,23 +195,35 @@ export const userChatStore = create<ChatStore>()(
 
                             controller.enqueue(value);
                             const text = decoder.decode(value);
-
-                            // 权限校验
-                            if (text === "0003") {
-                                controller.close();
-                                useAccessStore.getState().goToLogin();
+                            if (get().isJson(text) === true) {
+                                var code = JSON.parse(text).code;
+                                // 权限校验
+                                if (code === 401) {
+                                    window.confirm('请重新登录！');
+                                    controller.close();
+                                    useAccessStore.getState().goToLogin();
+                                }
+                            } else {
+                                botMessage.content += text;
+                                get().updateCurrentSession((session) => {
+                                    session.messages = session.messages.concat();
+                                });
+                                push();
                             }
-
-                            botMessage.content += text;
-                            get().updateCurrentSession((session) => {
-                                session.messages = session.messages.concat();
-                            });
-                            push();
                         }
 
                         push();
                     },
                 });
+            },
+
+            isJson(str) {
+                try {
+                    JSON.parse(str);
+                    return true;
+                } catch (e) {
+                    return false;
+                }
             },
 
             // 更新当前会话

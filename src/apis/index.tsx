@@ -1,4 +1,3 @@
-import {GptVersion} from "@/app/constants";
 import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
 import {DashScopeModel} from "../app/constants";
@@ -15,12 +14,10 @@ const apiHostUrl = "http://114.55.2.87:80";
 function getHeaders() {
     const accessState = useAccessStore.getState()
 
-    const headers = {
-        token: accessState.token,
+    return {
+        Token: accessState.token,
         'Content-Type': 'application/json;charset=utf-8'
     }
-
-    return headers
 }
 
 /**
