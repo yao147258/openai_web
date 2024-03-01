@@ -74,7 +74,7 @@ export default function DialogMessagesActions(props: {
     const {config} = props
     return <div className={styles['chat-input-actions']}>
         <Select
-            value={config?.gptVersion??DashScopeModel.QWEN_MAX}
+            value={config?.gptVersion??GptVersion.GPT_3_5_TURBO}
             style={{ width: 200 }}
             options={[
                 // { value: GptVersion.CHATGLM_LITE, label: 'chatglm_lite' },
@@ -88,8 +88,10 @@ export default function DialogMessagesActions(props: {
                 // { value: GptVersion.CHATGLM_6B_SSE, label: 'chatGLM_6b_SSE' },
                 // { value: GptVersion.GPT_4, label: 'gpt-4【暂无】' },
                 // { value: GptVersion.GPT_4_32K, label: 'gpt-4-32k【暂无】' },
-                {value: DashScopeModel.QWEN_PLUS, label: 'qwen-plus'},
-                {value: DashScopeModel.QWEN_MAX, label: 'qwen-max(限时免费)'}
+                // {value: DashScopeModel.QWEN_PLUS, label: 'qwen-plus'},
+                // {value: DashScopeModel.QWEN_MAX, label: 'qwen-max(限时免费)',
+                {value: GptVersion.GPT_3_5_TURBO, label: 'gpt-3.5-turbo',
+                }
             ]}
             onChange={(value) => {
                 chatStore.updateCurrentSession((session) => {

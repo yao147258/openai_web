@@ -1,6 +1,6 @@
 import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
-import {DashScopeModel} from "../app/constants";
+import {DashScopeModel, GptVersion} from "../app/constants";
 
 // 构建前把localhost修改为你的公网IP或者域名地址
 // const apiHostUrl = "http://localhost:8080";
@@ -33,7 +33,7 @@ export const getRoleList = () => {
  */
 export const completions = (data: {
     messages: { content: string; role: MessageRole }[],
-    model: DashScopeModel
+    model: GptVersion
 }) => {
     return fetch(`${apiHostUrl}/openAi/completionStream`, {
         method: 'post',

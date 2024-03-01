@@ -26,7 +26,7 @@ export interface Message {
 }
 
 export interface SessionConfig {
-    gptVersion: DashScopeModel;
+    gptVersion: GptVersion;
 }
 
 export enum MessageRole {
